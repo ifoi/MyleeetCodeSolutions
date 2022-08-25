@@ -11,36 +11,28 @@ var isValid = function(s) {
                "]": "[" ,
      }
     
-    
-    /*                ")" : "(" , 
-               "}": "{" ,
-               "]": "[" ,
-         
-   */
-    
+   
     let stack = [] ;
     
+    let strLen = s.length ;
     // check for opening tag 
      
-    for ( let i = 0; i < Math.floor(s.length); i++) {
+    for ( let i = 0; i < strLen ; i++) {
         
         // if its an openning bracket push to stack
+         const bracket = s[i] ;
         
-        
-        
-        if( !openCloseMap[s[i]]) { 
+        if( !openCloseMap[bracket]) { 
             
-            stack.push(s[i])  
+            stack.push(bracket)  
         
   // check if closed bracket matches with last thing in stack
-        }else if(openCloseMap[s[i]] != stack.pop() ){ 
+        }else if(openCloseMap[bracket] != stack.pop() ){ 
                 return false 
               }
         
     }    
     
-   
-    return stack.length === 0 ;
-    
-            
+  return stack.length === 0 ;
+                
 };
