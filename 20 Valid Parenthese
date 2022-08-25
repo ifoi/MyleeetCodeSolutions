@@ -22,7 +22,7 @@ var isValid = function(s) {
     
     // check for opening tag 
      
-    for ( let i = 0; i <= Math.floor(s.length); i++) {
+    for ( let i = 0; i < Math.floor(s.length); i++) {
         
         // if its an openning bracket push to stack
         
