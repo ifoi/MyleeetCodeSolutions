@@ -1,0 +1,46 @@
+/**
+ *    https://leetcode.com/problems/valid-parentheses
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function(s) {
+    
+    const openCloseMap = {
+               ")": "(" , 
+               "}": "{" ,
+               "]": "[" ,
+     }
+    
+    
+    /*                ")" : "(" , 
+               "}": "{" ,
+               "]": "[" ,
+         
+   */
+    
+    let stack = [] ;
+    
+    // check for opening tag 
+     
+    for ( let i = 0; i <= Math.floor(s.length); i++) {
+        
+        // if its an openning bracket push to stack
+        
+        
+        
+        if( !openCloseMap[s[i]]) { 
+            
+            stack.push(s[i])  
+        
+  / check if closed bracket matches with last thing in stack
+        }else if(openCloseMap[s[i]] != stack.pop() ){ 
+                return false 
+              }
+        
+    }    
+    
+   
+    return stack.length === 0 ;
+    
+            
+};
