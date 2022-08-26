@@ -13,58 +13,35 @@
  * @return {ListNode}
  */
 var addTwoNumbers = function(l1, l2) {
-    
-    //reverse to create digit
-    
-   let  firstNum = reverse2Num(l1)    // .join("").parseInt() ;
-   let  secondNum = reverse2Num( l2)  //.join("").parseInt() ;
-    
-     firstNum = convert2Num( firstNum) ;
-     secondNum = convert2Num(secondNum) ; 
-    
-   let result =   reverse2Num( secondNum + firstNum )
-
-    return result ; 
-    
-};
-
-
-function reverse2Num( head) {
-  // ListNode head = num ;
-    let joinedNum = "" ;
-    
-    if (head == null || head.next == null)  return head ;
-    
-   let reversedListHead = reverse2Num(head.next) ;
-    head.next.next = head ;
-    head.next = null;
-    
-    return reversedListHead ;
-    
-    
- /*   while( head !== null) {
-       let current = head ;
-        
-        joinedNum +=  head.val ;
-        head = head.next ;
-    }
- */   
- // joinedNum.reverse().join()  ;
+ 
+//  let firstList = l1 ;
+// let secondList = l2 ;  
+  
+  let result = new ListNode(0)  
+  let current  = result ; 
+  let carry = 0 ;  
     
   
+    while ( l1 != null || l2 !=null )  {
+     let value1 = 0;
+     let value2 = 0 ;
+      
+     if (l1 != null)  value1 = l1.val  ;  
+     if (l2 != null)  value2 = l2.val  ;   
+   
+    let sum = value1 +  value2  + carry 
     
-   //  return joinedNum.parseInt() 
- }
+    carry = Math.floor(sum/10) ;
+    sum = sum % 10 
+     
+    current.next = new ListNode(sum)
+      current = current.next  
+        
+    }
+    
+    if (carry > 0)   current.next = new ListNode(carry)  ;
+    
 
-  function convert2Num( strList) {
-      let current = strList ;
-       let number = "" ;
-      
-      while ( current != null ) {
-          number = current.val ;
-          current = current.next ;
-      }
-      
-      return  parseInt( number ) ; 
-      
-  }
+    return result.next ; 
+    
+};
