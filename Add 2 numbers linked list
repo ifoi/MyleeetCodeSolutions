@@ -1,0 +1,70 @@
+/**
+*  https://leetcode.com/problems/add-two-numbers/
+*
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var addTwoNumbers = function(l1, l2) {
+    
+    //reverse to create digit
+    
+   let  firstNum = reverse2Num(l1)    // .join("").parseInt() ;
+   let  secondNum = reverse2Num( l2)  //.join("").parseInt() ;
+    
+     firstNum = convert2Num( firstNum) ;
+     secondNum = convert2Num(secondNum) ; 
+    
+   let result =   reverse2Num( secondNum + firstNum )
+
+    return result ; 
+    
+};
+
+
+function reverse2Num( head) {
+  // ListNode head = num ;
+    let joinedNum = "" ;
+    
+    if (head == null || head.next == null)  return head ;
+    
+   let reversedListHead = reverse2Num(head.next) ;
+    head.next.next = head ;
+    head.next = null;
+    
+    return reversedListHead ;
+    
+    
+ /*   while( head !== null) {
+       let current = head ;
+        
+        joinedNum +=  head.val ;
+        head = head.next ;
+    }
+ */   
+ // joinedNum.reverse().join()  ;
+    
+  
+    
+   //  return joinedNum.parseInt() 
+ }
+
+  function convert2Num( strList) {
+      let current = strList ;
+       let number = "" ;
+      
+      while ( current != null ) {
+          number = current.val ;
+          current = current.next ;
+      }
+      
+      return  parseInt( number ) ; 
+      
+  }
