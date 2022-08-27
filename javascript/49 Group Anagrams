@@ -4,23 +4,21 @@
  * @param {string[]} strs
  * @return {string[][]}
  */
-var groupAnagrams = function(strs) {
+ var groupAnagrams = function(strs) {
     
-    let strObject = {} ;
-    
-    for (let word of strs) {
-        
-        let key = word.split("").sort().join("") ;
+     let strObject = {} ;
+     
+     for (let word of strs) {
+         
+         let key = word.split("").sort().join("") ;
        
-        
-        if (!strObject[key]) {
-             strObject[key] = word ;
-          }else {
-              strObject[key].push(word)      
-     //      strObject[key].push(word)  ;  // add to array      
-          }
+         if (!strObject[key]) {
+              strObject[key] = [word] ;
+           }else {
+               strObject[key].push(word)      
+           }
                      
-     } // end of for loop
-   
-   
-};
+      } // end of for loop
+    
+    return Object.values(strObject)  ;
+ };
