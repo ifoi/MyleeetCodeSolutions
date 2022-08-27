@@ -1,0 +1,26 @@
+/**
+ * https://leetcode.com/problems/group-anagrams/submissions/
+ *
+ * @param {string[]} strs
+ * @return {string[][]}
+ */
+var groupAnagrams = function(strs) {
+    
+    let strObject = {} ;
+    
+    for (let word of strs) {
+        
+        let key = word.split("").sort().join("") ;
+       
+        
+        if (!strObject[key]) {
+             strObject[key] = word ;
+          }else {
+              strObject[key].push(word)      
+     //      strObject[key].push(word)  ;  // add to array      
+          }
+                     
+     } // end of for loop
+   
+   
+};
