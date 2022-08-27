@@ -1,0 +1,20 @@
+/**
+ * https://leetcode.com/problems/reverse-string/
+ *
+ * @param {character[]} s
+ * @return {void} Do not return anything, modify s in-place instead.
+ */
+var reverseString = function(s) {
+      let mid = s.length/2 ;
+     
+     let top = s.length - 1;
+  
+    for( let i = 0; i < mid ; i++) {
+        let temp = s[top - i]
+        s[top - i] = s[i] ;
+        s[i] = temp ;
+         
+    }
+    
+    
+};
