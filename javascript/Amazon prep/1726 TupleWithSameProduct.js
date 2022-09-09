@@ -1,4 +1,6 @@
 /**
+ *  time = O(n * m)
+ *  space
  * 
  * @param {number[]} nums
  * @return {number}
