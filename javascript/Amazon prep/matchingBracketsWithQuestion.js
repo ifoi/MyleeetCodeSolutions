@@ -18,7 +18,7 @@ function fillMissingBrackets( s) {
       let result = 0 ;
     // base case
     // if sting is not even then it cant be balanced.
-     if ( strl % 2 != 0 ) { return result ; } 
+     if ( s % 2 != 0 ) { return result ; } 
      
      for ( let i = 2 ; i <n ; i +=2) {
         let s1 = s.slice(0, i) ;
